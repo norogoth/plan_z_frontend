@@ -29,6 +29,15 @@
     border:none;
 }
 
+body {
+		background-image: url('./images/abstract.jpg');
+		background-size: cover;
+}
+
+.contentDiv {
+		background-color: rgba(200, 200, 200, .9);
+}
+
 .googleLoginImage {
 		max-width: 100%
 }

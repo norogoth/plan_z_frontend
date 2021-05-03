@@ -6,6 +6,7 @@ export default function LoginPage() {
 
     return (
         <div>
+			<div class="contentDiv">
             <h1>Aaker Budget</h1>
             <ul>
                 <li>Set goals, enter transactions, and track progress</li>
@@ -19,12 +20,13 @@ export default function LoginPage() {
                     <label>password:</label><input></input>
                 </div>
                 <div name="googleDiv">
-                    <label>Or log in with your Google Acount</label>
+                    <label>Log in with your Google Account</label>
                     <button onClick = {() => handleClick()} class="googleLoginButton">
                         <img alt="Google login" class="googleLoginImage" src="google_login_1.png"/>
                     </button>
                 </div>
             </div>
+			</div>
         </div>
     );
 }
