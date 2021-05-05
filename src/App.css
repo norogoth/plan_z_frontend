@@ -51,17 +51,19 @@ body {
 .contentDiv {
 	color: white;
 
-		max-width: 90%;
-		margin-left: auto;
-		margin-right: auto;
-		border-radius: 1rem;
+	max-width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 1rem;
 
-		margin: 1rem;
+	margin: 1rem;
 
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-content: space-around;
+
+	height:100vh;
 }
 
 .feature-li {

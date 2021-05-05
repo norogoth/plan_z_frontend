@@ -1,10 +1,12 @@
 import './App.css';
 import LoginPage from './LoginPage';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 function App() {
-	
 	return (
-		<LoginPage/>
+		<Router>
+			<Route path="/" component = {LoginPage} />
+		</Router>
 	);
 }
 
