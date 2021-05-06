@@ -13,6 +13,15 @@
   }
 }
 
+input         {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -51,12 +60,11 @@ body {
 .contentDiv {
 	color: white;
 
+	margin: 0 auto;
 	max-width: 90%;
-	margin-left: auto;
-	margin-right: auto;
+	max-width: 500px;
 	border-radius: 1rem;
 
-	margin: 1rem;
 
 	text-align: center;
 	display: flex;
