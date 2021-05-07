@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 export default function LoginPage() {
 
     function handleClick() {
@@ -19,6 +21,7 @@ export default function LoginPage() {
 					<div className="passwordDiv">
 						<label>password:</label><input></input>
 					</div>
+					<button><Link to='/budget'>Log In</Link></button>
 				</div>
 				<div className="googleDiv">
 					<button onClick = {() => handleClick()} className="googleLoginButton">

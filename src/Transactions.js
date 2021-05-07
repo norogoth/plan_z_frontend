@@ -1,7 +1,12 @@
-
+import NavigationBar from './NavigationBar.js';
 
 export default function Transactions() {
 	return(
-		<p>This is where transactions go.</p>	
+		<div>
+			<NavigationBar />
+			<div className="transactionDiv">
+				<p>This is where transactions will be displayed.</p>	
+			</div>
+		</div>
 	);
 }

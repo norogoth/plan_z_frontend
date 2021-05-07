@@ -13,13 +13,9 @@
   }
 }
 
-input         {
-  font-size:18px;
-  padding:10px 10px 10px 5px;
-  display:block;
-  width:300px;
-  border:none;
-  border-bottom:1px solid #757575;
+.teDiv {
+	display: flex;
+	flex-direction: column;
 }
 
 .App-header {
@@ -42,6 +38,15 @@ input         {
 	height: 100%;
 }
 
+.transactionDiv {
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.btn-primary {
+	background: #3C65E7;
+}
+
 .googleLoginButton {
 	max-width: 200px;
 	background: none;
@@ -55,6 +60,11 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;
+	color: white;
+}
+
+.contentDiv > * {
+	height: 20%;
 }
 
 .contentDiv {
@@ -62,9 +72,8 @@ body {
 
 	margin: 0 auto;
 	max-width: 90%;
-	max-width: 500px;
+	max-width: 300px;
 	border-radius: 1rem;
-
 
 	text-align: center;
 	display: flex;
