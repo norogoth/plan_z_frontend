@@ -1,23 +1,24 @@
+import jwt from 'jwt-decode' //This is DIFFERENT from jwt in express. This one decodes
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
-import {Link} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 import { useState } from 'react';
 
 let clientId = process.env.REACT_APP_CLIENT_ID;
-let responseGoogle = null;
 
 console.log('Client ID: ',clientId);
 
 export default function LoginPage() {
-	const [loading, setLoading] = useState('Loading . . .');
-	const [user, setUser] = useState(null);
+	//const [loading, setLoading] = useState('Loading . . .');
+	// const [user, setUser] = useState(null);
 
 	const handleLogin = async googleData => {
 		
 		console.log('fetch to backend was called.');
 
-		const res = await fetch('http://localhost:8000/api/v1/auth/google', {
+		const res = await fetch('/api/v1/auth/google',		{
 			method: 'POST',
+			credentials: 'include',
 			body: JSON.stringify({
 				token: googleData.tokenId
 			}),
@@ -25,11 +26,13 @@ export default function LoginPage() {
 				'Content-Type': 'application/json'
 			}
 		})
-		console.log('res: ',res);
-		const data = await res.json()
-		responseGoogle = await data;
+		console.log('res',res);
+		const decodedToken = jwt(res);
 
-		console.log('fetch to back reached EOF');
+		console.log('decodedToken: ', decodedToken);
+
+		return (decodedToken);
+		//return (<Redirect to='budget/' />);
 	};
 		
     return (
@@ -50,18 +53,15 @@ export default function LoginPage() {
 					<button><Link to='/budget'>Log In</Link></button>
 				</div>
 				<GoogleLogin
-    clientId={process.env.REACT_APP_CLIENT_ID}
-    buttonText="Log in with Google"
-    onSuccess={handleLogin}
-    onFailure={handleLogin}
-    cookiePolicy={'single_host_origin'}
-/><div className="googleDiv">
-			{/*
-					<button onClick = {() => handleLogin()} className="googleLoginButton">
-						<img alt="Google login" className="googleLoginImage" src="googleButton.png"/>
-					</button>
-			*/}
-				</div>
+					clientId={process.env.REACT_APP_CLIENT_ID}
+					buttonText="Log in with Google"
+					onSuccess={handleLogin}
+					onFailure={(res) => {
+							console.log('Google login failed. here was the response: ', res);
+						}
+					}
+					cookiePolicy={'single_host_origin'}
+				/>
 			</div>
         </div>
     );
