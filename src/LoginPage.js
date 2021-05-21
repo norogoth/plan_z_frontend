@@ -9,14 +9,14 @@ let clientId = process.env.REACT_APP_CLIENT_ID;
 console.log('Client ID: ',clientId);
 
 export default function LoginPage() {
-	//const [loading, setLoading] = useState('Loading . . .');
-	// const [user, setUser] = useState(null);
+
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 	const handleLogin = async googleData => {
 		
 		console.log('fetch to backend was called.');
 
-		const res = await fetch('/api/v1/auth/google',		{
+		const res = await fetch('http://localhost:8000/api/v1/auth/google',		{
 			method: 'POST',
 			credentials: 'include',
 			body: JSON.stringify({
@@ -26,15 +26,14 @@ export default function LoginPage() {
 				'Content-Type': 'application/json'
 			}
 		})
-		console.log('res',res);
-		const decodedToken = jwt(res);
+		const myJson = await res.json();
+		setIsLoggedIn(true);
+		console.log('json: ',myJson);
 
-		console.log('decodedToken: ', decodedToken);
-
-		return (decodedToken);
-		//return (<Redirect to='budget/' />);
 	};
-		
+	if (isLoggedIn) {
+		return (<Redirect to='budget/' />);
+	}
     return (
         <div>
 			<div className="contentDiv">
