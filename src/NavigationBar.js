@@ -1,11 +1,13 @@
+import {Link} from 'react-router-dom';
+
 export default function NavigationBar() {
 	
 	return (
-		<div className="transactionDiv">
-			<nav class="navbar navbar-light bg-light">
-				<a class="navbar-brand" href="Budget">Budget</a>
-				<a class="navbar-brand" href="Transactions">Transactions</a>
-				<a class="navbar-brand" href="TransactionEntry">Enter Purchase</a>
+		<div classNameName="transactionDiv">
+			<nav classNameName="navbar navbar-light bg-light">
+				<Link className="navbar-brand" to="/budget">Budget</Link>
+				<Link className="navbar-brand" to="/transactions">Transactions</Link>
+				<Link className="navbar-brand" to="/transactionEntry">Enter Purchase</Link>
 			</nav>
 		</div>
 	)
