@@ -38,6 +38,10 @@
 	height: 100%;
 }
 
+.inputPair {
+	display: flex;
+}
+
 .transactionDiv {
 	max-width: 400px;
 	margin: 0 auto;
