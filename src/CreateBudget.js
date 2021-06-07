@@ -22,6 +22,10 @@ export default function CreateBudget(props) {
 		console.log(userCats);
 	}
 
+	function doneClick(){
+		console.log('I clicked done');
+	}
+
 	function handleNameChange(event) {
 		setName(event.target.value);
 	}
@@ -36,7 +40,7 @@ export default function CreateBudget(props) {
 			<div className="allCategoryDivs">
 				<div>
 					{userCats.map((item, i) => {
-							return (<div className="categoryPair">
+							return (<div id= {i} className="categoryPair">
 										<label>{item.name}</label>
 										<label>{item.amount}</label>
 									</div>
@@ -47,9 +51,10 @@ export default function CreateBudget(props) {
 						<input className="form-control" placeholder="name" value={name} onChange={handleNameChange}/>
 						<input className="form-control" placeholder="amount" value={amount} onChange={handleAmountChange}/>
 					</div>
-					<button onClick={() => saveCatClick()}>Save Category</button>
 				</div>
 			</div>
+				<button onClick={() => saveCatClick()}>Save Category</button>
+				<button onClick={() => doneClick()}>Done</button>
 		</div>
 	);
 }

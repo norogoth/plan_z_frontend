@@ -1,9 +1,11 @@
 import NavigationBar from './NavigationBar.js';
 import { Link } from 'react-router-dom';
+import { React } from 'react';
+import { validateToken } from './App.js';
 
 import {useState, useEffect} from 'react';
 
-export default function Budget() {
+export default function Budget(props) {
 	const [budget, setBudget] = useState({});
 	const [modifyMode, setModMode] = useState(false);
 
@@ -35,6 +37,7 @@ export default function Budget() {
 						}
 					</div>
 			</div>
+			<button onClick={() => validateToken()}>Is token still valid? </button>
 		</div>
 	);
 }
